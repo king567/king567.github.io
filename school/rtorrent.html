@@ -1,0 +1,144 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 主要的 -->
+<link rel="stylesheet" href="css/index.css">
+<!-- 下拉式選單 -->
+<link rel="stylesheet" href="css/drop-down-menu.css">
+<!-- 魚 -->
+<link rel="stylesheet" href="css/fish.css">
+<!-- nav特效 -->
+<link rel="stylesheet" media="screen" href="css/nav_style.css">
+<!------------>
+<title>學校作業</title>
+</head>
+<body>
+<header id="particles-js">
+ <!-- nav特效 -->
+<script src="js/particles.js"></script>
+<script src="js/app.js"></script>
+ <!------------>
+ 
+</header>
+<nav>
+  <ul class="drop-down-menu">
+        <li><a href="index.html">首頁</a>
+
+        </li>
+        <li><a href="#">資訊分享</a>
+		    <ul>
+                <li><a href="rclone.html">Rclone</a>
+                </li>
+                <li><a href="#">CSS 3D</a>
+                </li>
+                <li><a href="mail.html">郵箱</a>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#">服務項目</a>
+            <ul>
+                <li><a href="#">系統整合</a>
+                    <ul>
+                        <li><a href="CyberPanel.html">可視化面板</a>
+                        </li>
+                        <li><a href="#">Magento與CRM客戶管理系統整合</a>
+                        </li>
+                        <li><a href="#">Magento與ERP管理系統整合</a>
+                        </li>
+                        <li><a href="#">Magento金流串接服務</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li><a href="#">專業網頁設計</a>
+                    <ul>
+                        <li><a href="#">響應式網頁設計 (Responsive Web Design)</a>
+                        </li>
+                        <li><a href="#">手機網站設計</a>
+                        </li>
+                        <li><a href="#">WordPress 網頁設計</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">網路行銷服務</a>
+                    <ul>
+                        <li><a href="#">Amazon亞馬遜網路商城</a>
+                        </li>
+                        <li><a href="#">社群媒體行銷</a>
+                        </li>
+                        <li><a href="#">SEO 搜尋引擎優化</a>
+                            <ul>
+                                <li><a href="#">在地SEO</a>
+                                </li>
+                                <li><a href="#">SEO 搜尋引擎優化</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">網站客製開發</a>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#">專案介紹</a>
+        <ul>
+        	<li><a href="rtorrent.html">Rtorrent</a></li>
+        </ul>
+        </li>
+        <li><a href="#">關於我</a>
+        </li>
+    </ul>
+    <div class="fish"></div>
+</nav> 
+<div>
+  <h1>QuickBox套件</h1>
+</div>
+<h2>簡介</h2>
+<p>QuickBox是成熟的SeedBox服務器安裝套件，它整合了Deluge, ruTorrent, Plex, VSFTP, BTSync, LinuxQuota等多種軟件包，支持多用戶、磁盤配額、網頁SSH訪問、FTP訪問、在線觀看、雲儲存等功能，是Linux用戶搭建多功能下載服務器的首選。目前，國內尚無關於QuickBox套件安裝和使用的任何報導。因此，本文介紹了QuickBox套件的安裝與使用，並整合Let’s Encrypt SSL安全證書，有非常重要的意義</p>
+<p>安裝套件</p>
+<pre class="op"><div class="codes">apt-get update && apt-get upgrade
+apt-get install vim unzip zip wget curl sudo git lsb-release
+</div></pre>
+<p>Git 安裝</p>
+<pre class="op"><div class="codes">apt-get -yqq update; apt-get -yqq upgrade;
+apt-get -yqq install git lsb-release; \
+git clone https://github.com/QuickBox/QB /etc/QuickBox &&
+bash /etc/QuickBox/setup/quickbox-setup
+</div></pre>
+<p>安裝Let's Encrypt安全證書</p>
+<pre class="op"><div class="codes">git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
+cd /opt/letsencrypt
+./letsencrypt-auto --apache -d box.example.com自己申請的網域名稱
+</div></pre>
+<p>訪問Seedbox介面</p>
+<pre class="op"><div class="codes">https://box.example.com
+</div></pre>
+<div class="pic"><img src="image/quickbox.png" width="80%"></div>
+<p>安裝好QuickBox套件後需要對其略作配置。首先，QuickBox會將SSH默認端口改為4747, 這是一個很蛋疼的事情。若需要將其改回你常用的端口，可以編輯/etc/ssh/sshd_config文件更改端口號並執行service sshd restart生效。
+
+此時登錄我們的SeedBox後無法上傳種子，因為我們沒有給用戶分配磁盤配額。在SSH中執行setdisk命令可以為任意用戶分配磁盤配額。</p>
+<pre class="op"><div class="codes">vim /etc/ssh/sshd_config 修改port為22
+service sshd restart重新啟動ssh
+setdisk為用戶設定硬碟容量大小，一定要設定要不然會出現警告，可以針對root用戶設定
+</div></pre>
+<p>修復硬碟插件</p>
+<pre class="op"><div class="codes">fix-disk_widget_home
+fix-disk_widget_root 針對root使用者修復
+</div></pre>
+<p>問題與解決</p>
+<p>錯誤的rTorrent連結, 請檢查rTorrent是否已經正確執行, 請確認rTorrent設定檔與config.php中的 $scgi_port 與 $scgi_host 相符合</p>
+<pre class="op"><div class="codes">vim /srv/rutorrent/conf/config.php
+錯誤時:
+        $scgi_port = 5000;
+        $scgi_host = "127.0.0.1";
+修改後:
+	$scgi_port = 0;
+        $scgi_host = "unix:///tmp/rpc.socket";
+
+</div></pre>
+<p>官方指令集</p>
+<pre class="op"><div class="codes"><a href="https://quickbox.io/wiki/quickbox-commands/" target="_blank" style="text-decoration:none">https://quickbox.io/wiki/quickbox-commands/
+</a></div></pre>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 主要的 -->
+<link rel="stylesheet" href="css/index.css">
+<!-- 下拉式選單 -->
+<link rel="stylesheet" href="css/drop-down-menu.css">
+<!-- 魚 -->
+<link rel="stylesheet" href="css/fish.css">
+<!-- nav特效 -->
+<link rel="stylesheet" media="screen" href="css/nav_style.css">
+<!------------>
+<title>學校作業</title>
+</head>
+<body>
+<header id="particles-js">
+ <!-- nav特效 -->
+<script src="js/particles.js"></script>
+<script src="js/app.js"></script>
+ <!------------>
+ 
+</header>
+<nav>
+  <ul class="drop-down-menu">
+        <li><a href="index.html">首頁</a>
+
+        </li>
+        <li><a href="#">資訊分享</a>
+		    <ul>
+                <li><a href="rclone.html">Rclone</a>
+                </li>
+                <li><a href="#">CSS 3D</a>
+                </li>
+                <li><a href="mail.html">郵箱</a>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#">服務項目</a>
+            <ul>
+                <li><a href="#">系統整合</a>
+                    <ul>
+                        <li><a href="CyberPanel.html">可視化面板</a>
+                        </li>
+                        <li><a href="#">Magento與CRM客戶管理系統整合</a>
+                        </li>
+                        <li><a href="#">Magento與ERP管理系統整合</a>
+                        </li>
+                        <li><a href="#">Magento金流串接服務</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li><a href="#">專業網頁設計</a>
+                    <ul>
+                        <li><a href="#">響應式網頁設計 (Responsive Web Design)</a>
+                        </li>
+                        <li><a href="#">手機網站設計</a>
+                        </li>
+                        <li><a href="#">WordPress 網頁設計</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">網路行銷服務</a>
+                    <ul>
+                        <li><a href="#">Amazon亞馬遜網路商城</a>
+                        </li>
+                        <li><a href="#">社群媒體行銷</a>
+                        </li>
+                        <li><a href="#">SEO 搜尋引擎優化</a>
+                            <ul>
+                                <li><a href="#">在地SEO</a>
+                                </li>
+                                <li><a href="#">SEO 搜尋引擎優化</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">網站客製開發</a>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#">專案介紹</a>
+        <ul>
+        	<li><a href="rtorrent.html">Rtorrent</a></li>
+        </ul>
+        </li>
+        <li><a href="#">關於我</a>
+        </li>
+    </ul>
+    <div class="fish"></div>
+</nav> 
+<h1>Forsaken-Mail</h1>
+<h2>即收即毀的臨時郵箱系統</h2>
+<p>特別說明<br>訪問部署好的網址，會自動分配一個郵箱。
+接收郵箱驗證碼的時候，確保網頁處於打開狀態 , 才能收到郵件。
+頁面刷新後，郵箱就變了。
+<br>
+Linux 部署<br>
+以下腳本只在 CentOS6 系統調試運行過，其他環境請自行修改運行~
+</p>
+<pre class="op"><div class="codes">#安装git
+yum install git -y
+
+#安装nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+#安装nodejs和 npm
+nvm install 6.10.0
+
+#查看nodejs版本是否正确，显示 6.10.0
+node -v
+
+#下载项目源码
+git clone https://github.com/malaohu/forsaken-mail.git
+cd forsaken-mail
+
+#安装项目需要的库
+npm install
+
+#安装pm2工具
+npm install -g pm2
+
+#禁用postfix和sendmail
+killall sendmail
+/etc/init.d/postfix stop
+chkconfig --level 2345 postfix off
+chkconfig --level 2345 sendmail off
+
+#启动项目
+pm2 start bin/www
+
+#设置开机启动
+pm2 startup
+pm2 save</div></pre>
+<p>Docker 部署</p>
+<pre class="pre_write">原作者的源碼中已經寫好了 Dockerfile。
+但是原作者並未發佈到 docker.com。
+我將作者的源碼 forked 一份，重新修改了部分文件。已經成功發佈到 docker.com 方便大家使用！
+博主部署的 Docker 鏡像地址： malaohu/forsaken-mail
+那些免費的 Docker 容器可以部署呢？有哪些限制？
+首先有獨立的 IP, 必須支持 25 端口。
+當然 Hyper_也是可以的。</pre>
+<p>部署只需要一行代碼：</p>
+	<pre class="op"><div class="codes">docker run --name forsaken-mail -d -p 25:25 -p 3000:3000 malaohu/forsaken-mail</div></pre>
+<p>部署完成即可！
+然後直接使用 EndPoint 的網址加上端口 3000 即可訪問了！</p>
+<p>綁定域名</p>
+<pre class="pre_write">
+直接將域名解析到服務器 IP， 或者 CNAME 到某個網址即可。
+想擁有你自己的域名？
+試一試將自己域名 CNAME 到 forsaken.somecolor.cc
+然後使用你的域名加上 3000 端口訪問一下試一試吧！</pre>
+</body>
+</html>
