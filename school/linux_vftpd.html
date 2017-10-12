@@ -91,5 +91,80 @@
     </ul>
     <div class="fish"></div>
 </nav> 
+<h1>CentOS 7架設FTP伺服器</h1>
+<h2>vsftpd算是在Linux上很常用的FTP軟體
+在CentOS 7上面架設也不算難
+只要設定好防火牆規則應該就沒什麼大問題</h2>
+<p>1.下載安裝vsftpd </p>
+<pre class="op"><div class="codes"> yum -y install vsftpd
+ systemctl start vsftpd 啟動vsftpd
+ systemctl enable vsftpd 隨開機啟動
+</div></pre>
+<p>
+2.編輯設定檔/etc/vsftpd/vsftpd.conf 
+限制使用者離開家目錄，只有chroot_list名單中的使用者，才可以離開家目錄（給管理者用）
+</p>
+<pre class="op"><div class="codes">anonymous_enable=NO
+
+找到下列，將前面 # 的刪除
+只有chroot_list裡面的user可以切換到別的資料夾
+
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd/chroot_list
+chroot_local_user=YES
+
+讓使用者可用檔案總管方式上傳檔案
+connect_from_port_20=NO
+
+pasv_enable=YES
+vsftpd.conf設定檔範例 
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+local_umask=022
+dirmessage_enable=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+xferlog_std_format=YES
+listen=NO
+listen_ipv6=YES
+pam_service_name=vsftpd
+userlist_enable=YES
+tcp_wrappers=YES
+chroot_local_user=YES
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd/chroot_list  
+#請自己建立chroot_list在裡面填入使用者名稱
+connect_from_port_20=NO
+pasv_enable=YES
+3.讓root不能登入FTP 
+# vi /etc/vsftpd/ftpuser
+將root前面加#註解
+# vi /etc/vsftpd/user_list
+將root前面加#註解
+</div></pre>
+<p>
+4.重新啟動vsftpd服務
+</p>
+<pre class="op"><div class="codes">systemctl restart vsftpd
+</div></pre>
+<p>
+5.防火牆開放20,21 port後修改/etc/sysconfig/iptables-config(加入""裡面的部分)</p>
+<pre class="op"><div class="codes">IPTABLES_MODULES="ip_nat_ftp ip_conntrack_ftp"
+</div></pre>
+<p>
+6.重新啟動iptables 
+</p>
+<pre class="op"><div class="codes">systemctl restart iptables</div></pre>
+<p>
+7.限制FTP使用者 
+如果我們想把chris這個用戶目錄定位在/var/www/html/chris/public_html這個目錄中，並且不能登錄系統，我們應該如下操作 </p>
+<pre class="op"><div class="codes">adduser -d /var/www/html/chris/public_html -g ftp -s /sbin/nologin chris
+# passwd chris
+</div></pre>
+<p>8.限制來源IP</p>
+<pre class="op"><div class="codes">設定只允許 192.168.0.0/24 的主機使用 FTP Server
+編輯「/etc/hosts.allow」，輸入 vsftpd: 192.168.0.x
+編輯「/etc/hosts.deny」，輸入 vsftpd: ALL</div></pre>
 </body>
 </html>
