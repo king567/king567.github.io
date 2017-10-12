@@ -43,7 +43,7 @@
             <ul>
                 <li><a href="#">系統整合</a>
                     <ul>
-                        <li><a href="CyberPanel.html">可視化面板</a></li>
+                        <li><a href="CyberPanel.html">可視化面板</a>
                         </li>
                         <li><a href="#">Magento與CRM客戶管理系統整合</a>
                         </li>
@@ -70,11 +70,11 @@
                         </li>
                         <li><a href="linux_user.html">USER</a>
                         </li>
-                        <li><a href="#">SEO 搜尋引擎優化</a>
+                        <li><a href="linux_swap.html">SWAP虛擬記憶體</a>
                             <ul>
                                 <li><a href="#">在地SEO</a>
                                 </li>
-                                <li><a href="#">SEO 搜尋引擎優化</a>
+                                <li><a href="linux_swap.html">SWAP虛擬記憶體</a>
                                 </li>
                             </ul>
                         </li>
@@ -94,10 +94,10 @@
     </ul>
     <div class="fish"></div>
 </nav> 
-<h1>Cyber​​Panel</h1>
+<h1>CyberPanel</h1>
 <h2>OpenLiteSpeed + PHP5.3-7.0 一鍵安裝 / 可視化面板</h2>
 <h2>簡介</h2>
-<p>Cyber​​Panel，一款基於 OpenLiteSpeed 的 web 管理面板，支持自動添加 SSL、DNS、FTP、PHPMYAdmin 等。
+<p>CyberPanel，一款基於 OpenLiteSpeed 的 web 管理面板，支持自動添加 SSL、DNS、FTP、PHPMYAdmin 等。
 下面是其環境一鍵安裝腳本，支持安裝 SSL、FTP、DNS、PHPMYAdmin，以及 PHP 版本支持 PHP5.3-PHP7.0 版本。</p>
 <p>官網：<a class="cyberpanel_link" href="http://docs.cyberpanel.net/doku.php?id=start" target="_blank" style="text-decoration:none">http://docs.cyberpanel.net/doku.php?id=start</a></p>
 <h2>系統要求</h2>
@@ -142,38 +142,38 @@ python install.py [你的主機IP]
 <div class="pic"><img src="image/CyberPanel_img/9.jpg" width="80%"></div>
 <p>配置文件的位置</p>
 <p>虛擬主機</p>
-<pre class="op"><div class="codes">/usr/local/lsws/conf/vhosts/<域名></pre></div>
+<pre class="op"><div class="codes">/usr/local/lsws/conf/vhosts/"域名"</div></pre>
 <p>FTP</p>
 <pre class="op"><div class="codes">/etc/pure-ftpd
-/etc/pure-ftpd/pure-ftpd.conf</pre></div>
+/etc/pure-ftpd/pure-ftpd.conf</div></pre>
 <p>Litespeed</p>
 <pre class="op"><div class="codes">/usr/local/lsws/conf/httpd_config.conf
 /usr/local/lsws/conf/phpconfigs/php53.conf
 /usr/local/lsws/conf/phpconfigs/php54.conf
 /usr/local/lsws/conf/phpconfigs/php55.conf
 /usr/local/lsws/conf/phpconfigs/php56.conf
-/usr/local/lsws/conf/phpconfigs/php70.conf</pre></div>
+/usr/local/lsws/conf/phpconfigs/php70.conf</div></pre>
 <p>DNS目錄</p>
 <pre class="op"><div class="codes">/etc/nsd
 /etc/nsd/nsd.conf
-/usr/local/lsws/conf/zones/<域名></pre></div>
+/usr/local/lsws/conf/zones/"域名"</div></pre>
 <p>英文版</p>
 <p>系統要求</p>
 <pre class="op"><div class="codes">Centos 7.x
 Python 2.7
 256MB or above Ram.
 10GB Disk Space.
-Installation</pre></div>
+Installation</div></pre>
 <pre class="op"><div class="codes">wget http://cyberpanel.net/install.tar.gz
 tar zxf install.tar.gz
 cd install
 chmod +x install.py
-python install.py [IP Address]</pre></div>
+python install.py [IP Address]</div></pre>
 <p>In the place of IP address substitute the main IP address of your VPS/Dedicated server.</p>
 <p>Access</p>
 <pre class="op"><div class="codes">After the successfull installation you can access CyberPanel using the details below:
 Visit: https::8090
 Username: admin
-Password: 1234567</pre></div>
+Password: 1234567</div></pre>
 </body>
 </html>

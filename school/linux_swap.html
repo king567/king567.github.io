@@ -67,11 +67,11 @@
                         </li>
                         <li><a href="linux_user.html">USER</a>
                         </li>
-                        <li><a href="linux_swap.html">SWAP虛擬記憶體</a>
+                        <li><a href="#">SEO 搜尋引擎優化</a>
                             <ul>
                                 <li><a href="#">在地SEO</a>
                                 </li>
-                                <li><a href="linux_swap.html">SWAP虛擬記憶體</a>
+                                <li><a href="#">SEO 搜尋引擎優化</a>
                                 </li>
                             </ul>
                         </li>
@@ -91,5 +91,23 @@
     </ul>
     <div class="fish"></div>
 </nav> 
+<h1>增加 Swap 空間</h1>     
+<p>1.先建立一個 4GB 的檔案</p> 
+<pre class="op"><div class="codes">dd if=/dev/zero of=/swap bs=1024 count=$[1024*1024*4]</div></pre> 
+<p>2.把 /swap 的檔案形式設為 swap</p> 
+<pre class="op"><div class="codes">mkswap /swap</div></pre>
+<p>3.啟用 swap 檔案模式</p>    
+<pre class="op"><div class="codes">swapon /swap</div></pre>
+<p>4.檢查是否有正確掛載</p>
+<pre class="op"><div class="codes">swapon -s</div></pre>
+<p>會看到類似這樣的訊息，/dev/xvdb 是原本的 swap 空間 (只有 256M)，新的空間是 /swap，有 4G</p>
+<pre class="op"><div class="codes">[root@localhost ~]# swapon -s
+Filename                                Type            Size    Used    Priority
+/dev/xvdb                               partition       262140  4       -1
+/swap                                   file            4194300 0       -2</div></pre>
+<p>5.編輯 fstab，讓開機時就掛上</p>
+<pre class="op"><div class="codes">#vi /etc/fstab
+/swap    swap    swap   defaluts  0 0
+接下來就重開機確認一下是否有掛上囉!</div></pre>
 </body>
 </html>
