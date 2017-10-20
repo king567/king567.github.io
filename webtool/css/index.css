@@ -1,0 +1,45 @@
+html, body {
+    height:100%;
+	margin:0%;
+	overflow-x: hidden;
+}
+h1{
+ position: relative;
+ color:red;
+ left: 50%;
+ right:50%;
+ margin: 10px 0px 0px -70px;
+}
+h2{
+ position: relative;
+ color:red;
+ left: 50%;
+ right:50%;
+ margin: 10px 0px 0px -40px;
+}
+a{
+	text-decoration:none;
+}
+body{
+	background-image: url(../img/background_image_br.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.part{
+	font-size: 30px;
+	color: red;
+}
+.part2{
+	font-size: 20px;
+	color: red;
+	
+}
+li{color:red;}
+a{
+	color:red;
+}
+p{
+	color: aquamarine;
+    font-size: 25px;
+}
