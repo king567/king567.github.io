@@ -62,7 +62,9 @@ p{
 /*副標題*/
 h2{
 	padding-left: 10%;
-    color:#b40000;
+    color: rgb(122, 31, 31);
+font-size: 35px;
+text-shadow: rgb(34, 17, 17) 1px 0px 17px;
 }
 /*文內圖片設置*/
 .pic{
