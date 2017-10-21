@@ -1,4 +1,6 @@
 .h1_rclone{
 	text-decoration:none;
-	color:#b40000;
+	color: rgb(122, 31, 31);
+	font-size: 50px;
+	text-shadow: rgb(34, 17, 17) 8px -1px 14px;
 }

@@ -9,8 +9,6 @@ body{ background-image: url(../image/background_image_br.jpg);
     background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
-
-	
 }
 header{
 	height: 15%;
@@ -27,8 +25,10 @@ nav{
 h1{	
 	margin-top: 0px;
 	padding-left:40%;
-	color:#b40000;
 	font-weight: 900;
+	color: rgb(122, 31, 31);
+	font-size: 50px;
+	text-shadow: rgb(34, 17, 17) 8px -1px 14px;
 }
 /*程式碼範例Demo*/
 .codes{
@@ -72,7 +72,7 @@ h2{
 .pre_write{
 	position: relative;
 	left: 3%;
-	color: #82c800;
+	color: rgb(187,153,17);
 	font-weight: bold;
 }
 
