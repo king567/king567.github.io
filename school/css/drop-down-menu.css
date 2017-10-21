@@ -10,7 +10,6 @@ ul { /* 取消ul預設的內縮及樣式 */
         border: #ccc 1px solid;
         position:relative;
 		margin-top: -100%;
-		left: 30%;
 		display: inline-block;
 		font-family: 'Open Sans', Arial, sans-serif;
         font-size: 13px;

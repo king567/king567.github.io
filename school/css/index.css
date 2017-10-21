@@ -14,12 +14,13 @@ body{ background-image: url(../image/background_image_br.jpg);
 }
 header{
 	height: 15%;
+	padding-bottom: 6px;
 }
 /*導航列最上層的*/
 nav{
-position: relative;
-height:0px;
-padding-top:-100%; 
+  	position: relative;
+	margin: 0px 0px 0px -260px;
+  	left: 50%;
 }
 
 /*標題1*/
@@ -49,7 +50,7 @@ p{
 	left: 3%;
 	color: #82c800;
 	font-weight: bold;
-	 width:1200px;
+	width:1200px;
 	word-wrap:break-word;
 }
 /*code欄的透明度*/
