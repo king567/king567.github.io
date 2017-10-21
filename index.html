@@ -1,6 +1,74 @@
+<!doctype html>
 <html>
-< ?php
-header("Location: http://www.kingcloud.tk/school/");
-exit;
-?>
+<head>
+ <style>
+ botton{
+  position: absolute;
+  margin: -60px 0px 0px -58px;
+  top: 50%;
+  left: 50%;
+  overflow: auto;
+}
+a{
+  font-size: 30px;
+  color: #ef6eae; 
+  text-decoration:none;
+}
+.pulse:hover,
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+	 .pulse {
+  --color: #ef6eae;
+  --hover: #ef8f6e;
+}
+	 button {
+  color: var(--color);
+  transition: 0.25s;
+}
+	 button {
+  width:  300px;
+  height: 200px;
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+	 button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+	 body{
+  color: #fff;
+  background: #17181c;
+  font: 300 1em 'Fira Sans', sans-serif;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+	</style>
+</head>
+<body>
+<button class="pulse"><a href="school/">Project</a></button>
+</body>
 </html>
