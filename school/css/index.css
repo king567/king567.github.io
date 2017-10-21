@@ -58,7 +58,8 @@ p{
 	opacity: 0.6;
 }
 /*副標題*/
-h2{ padding-left: 10%;
+h2{
+	padding-left: 10%;
     color:#b40000;
 }
 /*文內圖片設置*/
@@ -72,3 +73,4 @@ h2{ padding-left: 10%;
 	color: #82c800;
 	font-weight: bold;
 }
+
