@@ -12,8 +12,7 @@ ul { /* 取消ul預設的內縮及樣式 */
 		margin-top: -100%;
 		display: inline-block;
 		font-family: 'Open Sans', Arial, sans-serif;
-        font-size: 13px;
-		
+        font-size: 17px;		
     }
 
     ul.drop-down-menu li {
