@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 主要的 -->
+<link rel="stylesheet" href="../css/index.css">
+<!-- 下拉式選單 -->
+<link rel="stylesheet" href="../css/drop-down-menu.css">
+<!-- 魚 -->
+<link rel="stylesheet" href="../css/fish.css">
+<!-- rclone連結特效 -->
+<link rel="stylesheet" href="../css/rclone/rclone.css">
+<!-- nav特效 -->
+<link rel="stylesheet" media="screen" href="../css/nav_style.css">
+<!------------>
+<title>學校作業</title>
+
+</head>
+<body>
+<header id="particles-js">
+ <!-- nav特效 -->
+<script src="../js/particles.js"></script>
+<script src="../js/app.js"></script>
+ <!------------>
+ <nav>
+  <ul class="drop-down-menu">
+        <li><a href="../index.html">首頁</a>
+
+        </li>
+        <li><a href="#">資訊分享</a>
+		    <ul>
+                <li><a href="rclone.html">Rclone</a>
+                </li>
+                <li><a href="#">CSS 3D</a>
+                </li>
+                <li><a href="mail.html">郵箱</a>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#">服務項目</a>
+            <ul>
+                <li><a href="#">系統整合</a>
+                    <ul>
+                        <li><a href="CyberPanel.html">可視化面板</a>
+                        </li>
+                        <li><a href="#">Magento與CRM客戶管理系統整合</a>
+                        </li>
+                        <li><a href="#">Magento與ERP管理系統整合</a>
+                        </li>
+                        <li><a href="#">Magento金流串接服務</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li><a href="#">專業網頁設計</a>
+                    <ul>
+                        <li><a href="#">響應式網頁設計 (Responsive Web Design)</a>
+                        </li>
+                        <li><a href="#">手機網站設計</a>
+                        </li>
+                        <li><a href="#">WordPress 網頁設計</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Linux技術</a>
+                    <ul>
+                        <li><a href="/linux/linux_vftpd.html">FTP</a>
+                        </li>
+                        <li><a href="/linux/linux_user.html">USER</a>
+                        </li>
+                        <li><a href="/linux/linux_swap.html">SWAP虛擬記憶體</a>
+                            <ul>
+                                <li><a href="#">在地SEO</a>
+                                </li>
+                                <li><a href="#">SEO 搜尋引擎優化</a>
+                                </li>
+                            </ul>
+                        </li>
+						<li><a href="#">VPN</a>
+						    <ul>
+                                <li><a href="#">在地SEO</a>
+                                </li>
+                                <li><a href="/linux/linux_pptp.html">PPTP</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">網站客製開發</a>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#">專案介紹</a>
+        <ul>
+        	<li><a href="rtorrent.html">Rtorrent</a></li>
+        </ul>
+        </li>
+        <li><a href="#">關於我</a>
+        </li>
+    </ul>
+    <div class="fish"></div>
+</nav>
+</header>
+ 
+<div>
+  <h1><a class="h1_rclone" href="https://rclone.org/" target="_blank" title="Rclone">Rclone</a>使用教學</h1>
+</div>
+<p> 安裝 </p>
+<pre class="op"><div class="codes">curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
+unzip rclone-current-linux-amd64.zip
+cd rclone-*-linux-amd64</div></pre>
+<p>
+複製二進制碼</p>
+<pre class="op"><div class="codes">sudo cp rclone /usr/bin/
+sudo chown root:root /usr/bin/rclone
+sudo chmod 755 /usr/bin/rclone
+</div></pre>
+<p>
+安裝 manpage</p>
+<pre class="op"><div class="codes">sudo mkdir -p /usr/local/share/man/man1
+sudo cp rclone.1 /usr/local/share/man/man1/
+sudo mandb </div></pre>
+<p>
+輸入rclone config進行設定作業</p>
+<pre class="op"><div class="codes">rclone config</div></pre>
+<p>Google Drive</p>
+<pre class="op"><div class="codes">選擇第8個google drive
+Google Application Client Id - leave blank normally.
+client_id 留空白
+Google Application Client Secret - leave blank normally.
+client_secret 留空白
+Use auto config?
+ * Say Y if not sure /有實體機器選這個/
+ * Say N if you are 
+ working on a remote or headless machine or Y didn't work/遠端的伺服器選這個/
+y) Yes
+n) No
+y/n) 
+</div></pre>
+<p>如果是遠端主機的話，輸入以下回傳值</p>
+<pre class="op"><div class="codes">[remote]
+client_id = 
+client_secret = 
+token = {"AccessToken":"xxxx.x.xxxxx_xxxxxxxxxxx
+_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+"RefreshToken":"1/xxxxxxxxxxxxxxxx_xxxxxxxxxxxxxxxxxxxxxxxxxx","Expiry":
+"2014-03-16T13:57:58.955387075Z","Extra":null}
+--------------------
+y) Yes this is OK
+e) Edit this remote
+d) Delete this remote
+y/e/d) y</div></pre>
+<p>操作指令</p>
+<pre class="op"><div class="codes">複製檔案到目的地
+rclone copy source:sourcepath dest:destpath
+範例:
+rclone copy movie/變形金剛  gd1:movie/變形金剛 
+</div></pre>
+<p>同步鏡像指令</p>
+<pre class="op"><div class="codes">同步來源至目的地
+rclone sync source:path dest:path
+常用參數
+rclone -v 顯示目前進度
+</div></pre>
+</body>
+</html>

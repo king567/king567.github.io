@@ -3,36 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <!-- 主要的 -->
-<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="../../css/index.css">
 <!-- 下拉式選單 -->
-<link rel="stylesheet" href="css/drop-down-menu.css">
+<link rel="stylesheet" href="../../css/drop-down-menu.css">
 <!-- 魚 -->
-<link rel="stylesheet" href="css/fish.css">
+<link rel="stylesheet" href="../../css/fish.css">
 <!-- nav特效 -->
-<link rel="stylesheet" media="screen" href="css/nav_style.css">
+<link rel="stylesheet" media="screen" href="../../css/nav_style.css">
 <!------------>
 <title>學校作業</title>
 </head>
 <body>
 <header id="particles-js">
  <!-- nav特效 -->
-<script src="js/particles.js"></script>
-<script src="js/app.js"></script>
+<script src="../../js/particles.js"></script>
+<script src="../../js/app.js"></script>
  <!------------>
- 
-</header>
-<nav>
+ <nav>
   <ul class="drop-down-menu">
-        <li><a href="index.html">首頁</a>
+        <li><a href="../../index.html">首頁</a>
 
         </li>
         <li><a href="#">資訊分享</a>
 		    <ul>
-                <li><a href="rclone.html">Rclone</a>
+                <li><a href="../rclone.html">Rclone</a>
                 </li>
                 <li><a href="#">CSS 3D</a>
                 </li>
-                <li><a href="mail.html">郵箱</a>
+                <li><a href="../mail.html">郵箱</a>
                 </li>
             </ul>
         </li>
@@ -40,7 +38,7 @@
             <ul>
                 <li><a href="#">系統整合</a>
                     <ul>
-                        <li><a href="CyberPanel.html">可視化面板</a>
+                        <li><a href="../CyberPanel.html">可視化面板</a>
                         </li>
                         <li><a href="#">Magento與CRM客戶管理系統整合</a>
                         </li>
@@ -98,6 +96,57 @@
         </li>
     </ul>
     <div class="fish"></div>
-</nav> 
+</nav>
+</header>
+ 
+<h1> VPN Server PPTP</h1>
+<p>PPTP 配置步驟</p>
+<pre class="op"><div class="codes">yum -y install epel-release   #安裝官方認可的第三方套件庫 EPEL
+yum -y install ppp pptpd   #安裝 PPTP 所需軟件
+ 
+vim /etc/pptpd.conf
+#=======================================
+connections 100   #可自訂連線數限制
+localip 10.0.0.1  #本機IP（作為 Default Route 使用而已）
+remoteip 10.0.0.101-200  #遠端撥入PPTP配發的IP範圍
+#=======================================
+   
+vim /etc/ppp/options.pptpd
+#=======================================
+ms-dns 8.8.8.8  #設定遠端撥入預設DNS
+ms-dns 8.8.4.4
+idle 7200  #閒置（秒）後自動斷線
+logfile /var/log/pptpd.log   #可指定日誌放置位置
+#=======================================
+ 
+vim /etc/ppp/chap-secrets
+#=======================================
+user1 pptpd 123456 *
+user2 pptpd 654321 10.0.0.101
+#=======================================
+#以上user1,2為範例，第一欄為帳號，第三欄為密碼，第四欄為該用戶取得IP位置
+#獨立針對PPTP帳號密碼管理，與現有用戶無關聯
+ 
+vim /etc/sysctl.conf
+#=======================================
+net.ipv4.ip_forward = 1
+#=======================================
+#啟動系統路由轉送功能，參考
+ 
+sysctl -p   #立刻生效sysctl的修改設定
+ 
+firewall-cmd --permanent --zone=public --add-port=1723/tcp  #開放 PPTP 1723 Port
+firewall-cmd --permanent --add-masquerade   #開啟 NAT （請自行確認是否需要開啟）
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -i eth0 -p gre -j ACCEPT
+#eth0 請改為自己的網路介面卡名稱
+#firewall direct 清單位置 /etc/firewalld/direct.xml
+#進入介面(eth0)開放 GRE tunnel，參考
+firewall-cmd --reload   #防火牆重新載入
+ 
+systemctl enable pptpd
+systemctl start pptpd</div></pre>
+<p>修正MTU問題</p>
+<pre class="op"><div class="codes">firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p tcp -i ppp+ -j TCPMSS --syn --set-mss 1356
+#遇到此問題會造成某些網站無法訪問(如:speedtest)</div></pre>
 </body>
 </html>
