@@ -76,4 +76,7 @@ h2{
 	color: rgb(187,153,17);
 	font-weight: bold;
 }
-
+/*自訂文字選取的突出顯示效果*/
+::selection{
+	background: rgba(187,153,17, 0.6);
+}
