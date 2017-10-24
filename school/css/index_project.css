@@ -1,11 +1,11 @@
-.part{
+.home_project_list{
 	font-size: 30px;
 	color: rgb(122, 31, 31);
 	text-shadow: rgb(34, 17, 17) 1px 0px 17px;
 }
-.part2{
+.detail_list{
 	font-size: 20px;
-	color: rgb(122, 31, 31);
+	color: rgb(187,153,17);
 	text-shadow: rgb(34, 17, 17) 1px 0px 17px;
 	
 }
@@ -17,4 +17,24 @@ a{
 .div_h1{
 	left: 50%;
 	margin: 0px 0px 0px 0px;
+}
+.internal{
+    position:relative;
+	left: 3%;
+	width:85%;
+	background-color: rgba(34, 17, 17, 0.6);
+	border-style:groove;
+	border-color: rgba(34, 17, 17, 0.6);
+	word-wrap:break-word;
+	color: rgb(187,153,17);
+	}
+.detail{
+	position:relative;
+	left: 3%;
+	width:40%;
+	background-color: rgba(34, 17, 17, 0.6);
+	border-style:groove;
+	border-color: rgba(34, 17, 17, 0.6);
+	word-wrap:break-word;
+	color: rgb(187,153,17);
 }
