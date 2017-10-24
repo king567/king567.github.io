@@ -1,15 +1,18 @@
 .part{
 	font-size: 30px;
-	color: red;
+	color: rgb(122, 31, 31);
+	text-shadow: rgb(34, 17, 17) 1px 0px 17px;
 }
 .part2{
 	font-size: 20px;
-	color: red;
+	color: rgb(122, 31, 31);
+	text-shadow: rgb(34, 17, 17) 1px 0px 17px;
 	
 }
 a{
 	text-decoration:none;
-	color: red;
+	color: rgb(122, 31, 31);
+	text-shadow: rgb(34, 17, 17) 1px 0px 17px;
 }
 .div_h1{
 	left: 50%;
