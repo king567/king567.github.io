@@ -1,40 +1,46 @@
 .home_project_list{
 	font-size: 30px;
-	color: rgb(122, 31, 31);
-	text-shadow: rgb(34, 17, 17) 1px 0px 17px;
+	color: khaki;
+	text-shadow: -1px -1px 0 black,1px -1px 0 black,-1px 1px 0 black,1px 1px 0 black;
+	font-family:'setofont';
+	margin-left: 20px;
 }
 .detail_list{
-	font-size: 20px;
-	color: rgb(187,153,17);
-	text-shadow: rgb(34, 17, 17) 1px 0px 17px;
-	
+	font-size: 30px;
+	padding-left: 50px;
+	color: khaki;
+	text-shadow: -1px -1px 0 black,1px -1px 0 black,-1px 1px 0 black,1px 1px 0 black;
+	font-family:'setofont';
 }
 a{
 	text-decoration:none;
-	color: rgb(122, 31, 31);
-	text-shadow: rgb(34, 17, 17) 1px 0px 17px;
+	color: khaki;
+	text-shadow: -1px -1px 0 black,1px -1px 0 black,-1px 1px 0 black,1px 1px 0 black;
 }
 .div_h1{
 	left: 50%;
 	margin: 0px 0px 0px 0px;
 }
+
 .internal{
     position:relative;
 	left: 3%;
 	width:85%;
-	background-color: rgba(34, 17, 17, 0.6);
+	background-color: black;
 	border-style:groove;
 	border-color: rgba(34, 17, 17, 0.6);
 	word-wrap:break-word;
-	color: rgb(187,153,17);
+	color: khaki;
+	font-family:'setofont';
+	line-height: 50px;
 	}
 .detail{
 	position:relative;
 	left: 3%;
-	width:40%;
-	background-color: rgba(34, 17, 17, 0.6);
+	width:30%;
+	background-color: black;
 	border-style:groove;
 	border-color: rgba(34, 17, 17, 0.6);
 	word-wrap:break-word;
-	color: rgb(187,153,17);
+	color: khaki;
 }
